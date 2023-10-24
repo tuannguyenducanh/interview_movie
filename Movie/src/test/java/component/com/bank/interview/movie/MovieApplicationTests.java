@@ -1,4 +1,4 @@
-package com.bank.interview.movie;
+package component.com.bank.interview.movie;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

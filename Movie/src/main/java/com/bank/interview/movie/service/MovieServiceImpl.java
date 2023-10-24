@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -22,18 +23,39 @@ public class MovieServiceImpl implements MovieService {
                 .rating(movieRequestDto.getRating())
                 .build();
         movieRepository.save(movie);
-        return MovieResponse.builder()
-                .id(movie.getId())
-                .title(movie.getTitle())
-                .category(movie.getCategory())
-                .rating(movie.getRating())
-                .build();
+        return mapResponse(movie);
     }
 
     @Override
     public MovieResponse getMovie(Long movieId) {
         Movie movie = movieRepository.findById(movieId)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find movie with id " + movieId));
+        return mapResponse(movie);
+    }
+
+    @Override
+    @Transactional
+    public MovieResponse update(Long movieId, MovieRequestDto movieRequestDto) {
+        Movie movie = movieRepository.findById(movieId)
+                .orElseThrow(() -> new EntityNotFoundException("Cannot find movie with id " + movieId));
+        Movie updatedMovie = Movie.builder()
+                .id(movie.getId())
+                .title(movieRequestDto.getTitle())
+                .category(movieRequestDto.getCategory())
+                .rating(movieRequestDto.getRating())
+                .build();
+        movieRepository.save(updatedMovie);
+        return mapResponse(updatedMovie);
+    }
+
+    @Override
+    public void delete(Long movieId) {
+        Movie movie = movieRepository.findById(movieId)
+                .orElseThrow(() -> new EntityNotFoundException("Cannot find movie with id " + movieId));
+        movieRepository.deleteById(movieId);
+    }
+
+    private MovieResponse mapResponse(Movie movie) {
         return MovieResponse.builder()
                 .id(movie.getId())
                 .title(movie.getTitle())

@@ -8,4 +8,8 @@ public interface MovieService {
     MovieResponse createMovie(MovieRequestDto movieRequestDto);
 
     MovieResponse getMovie(Long movieId);
+
+    MovieResponse update(Long movieId, MovieRequestDto movieRequestDto);
+
+    void delete(Long movieId);
 }

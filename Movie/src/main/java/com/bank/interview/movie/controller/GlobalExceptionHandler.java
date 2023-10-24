@@ -1,17 +1,14 @@
 package com.bank.interview.movie.controller;
 
 import com.bank.interview.movie.api.ApiError;
-import com.bank.interview.movie.api.ApiErrorDetail;
 import com.bank.interview.movie.api.ErrorStatusCode;
 import com.bank.interview.movie.exception.DataNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.message.StringFormattedMessage;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice

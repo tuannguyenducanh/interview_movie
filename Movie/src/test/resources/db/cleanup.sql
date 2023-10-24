@@ -1,0 +1,1 @@
+TRUNCATE `Interview_movie`.`movie`;
