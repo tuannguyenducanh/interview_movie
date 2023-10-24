@@ -1,7 +1,9 @@
 package com.bank.interview.movie.controller;
 
-import com.bank.interview.movie.model.MovieRequest;
-import com.bank.interview.movie.model.MovieResponse;
+import com.bank.interview.movie.api.MovieRequest;
+import com.bank.interview.movie.api.MovieResponse;
+import com.bank.interview.movie.constant.ErrorLocation;
+import com.bank.interview.movie.exception.DataNotFoundException;
 import com.bank.interview.movie.service.MovieService;
 import com.bank.interview.movie.service.dto.MovieRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.concurrent.Callable;
 
 @RestController
@@ -23,6 +26,7 @@ import java.util.concurrent.Callable;
 @Slf4j
 public class MovieController {
 
+    public static final String MOVIE_ID = "movie_id";
     private final MovieService movieService;
 
     @PostMapping
@@ -40,11 +44,15 @@ public class MovieController {
     }
 
     @GetMapping("/{movie_id}")
-    public Callable<ResponseEntity<MovieResponse>> getMovie(@PathVariable("movie_id") Long movieId) {
+    public Callable<ResponseEntity<MovieResponse>> getMovie(@PathVariable(MOVIE_ID) Long movieId) {
 
         return () -> {
-            MovieResponse movieResponse = movieService.getMovie(movieId);
-            return new ResponseEntity<>(movieResponse, HttpStatus.OK);
+            try {
+                MovieResponse movieResponse = movieService.getMovie(movieId);
+                return new ResponseEntity<>(movieResponse, HttpStatus.OK);
+            } catch (EntityNotFoundException ex) {
+                throw new DataNotFoundException(ex.getMessage(), ErrorLocation.PATH, MOVIE_ID);
+            }
         };
     }
 }

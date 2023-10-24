@@ -1,4 +1,4 @@
-package com.bank.interview.movie.model;
+package com.bank.interview.movie.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
