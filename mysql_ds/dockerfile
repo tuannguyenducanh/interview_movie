@@ -1,0 +1,9 @@
+FROM mysql:8.0
+LABEL description="Movie docker image"
+
+# Add a database
+ENV MYSQL_DATABASE Interview_movie
+
+#Check out docker entry point for further configuration :
+# https://github.com/docker-library/mysql
+COPY ./init-scripts/ /docker-entrypoint-initdb.d/
