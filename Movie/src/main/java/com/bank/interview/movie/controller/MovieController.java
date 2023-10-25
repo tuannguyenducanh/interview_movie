@@ -1,5 +1,6 @@
 package com.bank.interview.movie.controller;
 
+import com.bank.interview.movie.api.MoviePage;
 import com.bank.interview.movie.api.MovieRequest;
 import com.bank.interview.movie.api.MovieResponse;
 import com.bank.interview.movie.constant.ErrorLocation;
@@ -8,6 +9,9 @@ import com.bank.interview.movie.service.MovieService;
 import com.bank.interview.movie.service.dto.MovieRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.SortDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 import java.util.concurrent.Callable;
 
 @RestController
@@ -52,6 +57,15 @@ public class MovieController {
             }
         };
     }
+
+    @GetMapping
+    public Callable<ResponseEntity<MoviePage<MovieResponse>>> getMovieList(@SortDefault(sort = "id") @PageableDefault(size=10) final Pageable pageable) {
+        return () -> {
+            MoviePage<MovieResponse> movieResponses = movieService.findAll(pageable);
+            return new ResponseEntity<>(movieResponses, HttpStatus.OK);
+        };
+    }
+
     @PutMapping("/{movie_id}")
     public Callable<ResponseEntity<MovieResponse>> updateMovie(@PathVariable(MOVIE_ID) Long movieId, @RequestBody MovieRequest movieRequest) {
         return () -> {

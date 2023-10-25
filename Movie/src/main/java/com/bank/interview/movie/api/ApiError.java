@@ -17,5 +17,4 @@ public class ApiError {
     private String errorId;
     private String message;
     private HttpStatus httpStatus;
-    private ApiErrorDetail detail;
 }
