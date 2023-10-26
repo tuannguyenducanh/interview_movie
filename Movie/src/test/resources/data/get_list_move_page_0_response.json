@@ -1,0 +1,70 @@
+{
+  "content": [
+    {
+      "id": 1,
+      "title": "Tom and Jerry",
+      "category": "Cartoon",
+      "rating": 3.0
+    },
+    {
+      "id": 2,
+      "title": "Tom and Jerry",
+      "category": "Cartoon",
+      "rating": 4.0
+    },
+    {
+      "id": 3,
+      "title": "Tom and Jerry",
+      "category": "Cartoon",
+      "rating": 1.2
+    },
+    {
+      "id": 4,
+      "title": "Tom and Jerry",
+      "category": "Cartoon",
+      "rating": 2.3
+    },
+    {
+      "id": 5,
+      "title": "Tom and Jerry",
+      "category": "Cartoon",
+      "rating": 3.1
+    },
+    {
+      "id": 6,
+      "title": "Tom and Jerry",
+      "category": "Cartoon",
+      "rating": 1.4
+    },
+    {
+      "id": 7,
+      "title": "Sunrise",
+      "category": "Romantic",
+      "rating": 3.2
+    },
+    {
+      "id": 8,
+      "title": "Sunrise",
+      "category": "Romantic",
+      "rating": 3.6
+    },
+    {
+      "id": 9,
+      "title": "Sunrise",
+      "category": "Romantic",
+      "rating": 2.3
+    },
+    {
+      "id": 10,
+      "title": "Sunrise",
+      "category": "Romantic",
+      "rating": 1.7
+    }
+  ],
+  "totalElements": 11,
+  "totalPages": 2,
+  "size": 10,
+  "sort": [
+    "id,ASC"
+  ]
+}

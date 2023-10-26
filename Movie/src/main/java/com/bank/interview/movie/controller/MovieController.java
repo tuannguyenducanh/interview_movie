@@ -108,16 +108,14 @@ public class MovieController {
             @ApiResponse(responseCode = "404", description = "Not found - The movie was not found")
     })
     @DeleteMapping("/{movie_id}")
-    public Callable<ResponseEntity<MovieResponse>> deleteMovie(@PathVariable(MOVIE_ID) Long movieId) {
-        return () -> {
-            try {
-                log.debug("message=\"Delete movie id: {}\"", movieId);
-                movieService.delete(movieId);
-                return new ResponseEntity<>(HttpStatus.OK);
-            } catch (EntityNotFoundException ex) {
-                throw new DataNotFoundException(ex.getMessage(), ErrorLocation.PATH, MOVIE_ID);
-            }
-        };
+    public ResponseEntity<MovieResponse> deleteMovie(@PathVariable(MOVIE_ID) Long movieId) {
+        try {
+            log.debug("message=\"Delete movie id: {}\"", movieId);
+            movieService.delete(movieId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException ex) {
+            throw new DataNotFoundException(ex.getMessage(), ErrorLocation.PATH, MOVIE_ID);
+        }
     }
 
     private static MovieRequestDto mapRequestMovieToDto(MovieRequest movieRequest) {

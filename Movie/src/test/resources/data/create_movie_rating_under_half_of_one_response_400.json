@@ -1,0 +1,12 @@
+{
+  "errorId": "API_002",
+  "message": "Invalid Request",
+  "httpStatus": 400,
+  "details": [
+    {
+      "field": "rating",
+      "value": 0.1,
+      "issue": "Rating must be between 0.5 and 5"
+    }
+  ]
+}

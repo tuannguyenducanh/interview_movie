@@ -1,0 +1,11 @@
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Tom and Jerry", "Cartoon", 3.0);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Tom and Jerry", "Cartoon", 4.0);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Tom and Jerry", "Cartoon", 1.2);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Tom and Jerry", "Cartoon", 2.3);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Tom and Jerry", "Cartoon", 3.1);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Tom and Jerry", "Cartoon", 1.4);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Sunrise", "Romantic", 3.2);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Sunrise", "Romantic", 3.6);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Sunrise", "Romantic", 2.3);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Sunrise", "Romantic", 1.7);
+INSERT INTO `interview`.`movie`(`title`,`category`,`rating`) VALUES ("Walking Dead", "Horror", 1.3);

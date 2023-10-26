@@ -1,0 +1,12 @@
+{
+  "errorId": "API-001",
+  "message": "Request Data Not Found",
+  "httpStatus": 404,
+  "details": [
+    {
+      "field": null,
+      "value": null,
+      "issue": null
+    }
+  ]
+}

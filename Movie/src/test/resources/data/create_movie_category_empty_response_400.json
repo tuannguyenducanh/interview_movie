@@ -1,0 +1,12 @@
+{
+  "errorId": "API_002",
+  "message": "Invalid Request",
+  "httpStatus": 400,
+  "details": [
+    {
+      "field": "category",
+      "value": "",
+      "issue": "Field length must between 1 and 50"
+    }
+  ]
+}

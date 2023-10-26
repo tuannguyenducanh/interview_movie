@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "id": 11,
+      "title": "Walking Dead",
+      "category": "Horror",
+      "rating": 1.3
+    }
+  ],
+  "totalElements": 11,
+  "totalPages": 2,
+  "size": 10,
+  "sort": [
+    "id,ASC"
+  ]
+}
