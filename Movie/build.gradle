@@ -7,6 +7,10 @@ plugins {
 group = 'com.bank.interview.movie'
 version = '0.0.1-SNAPSHOT'
 
+jar {
+	enabled = false
+}
+
 java {
 	sourceCompatibility = '11'
 }
@@ -51,8 +55,4 @@ def integrationTest = tasks.register("integrationTest", Test) {
 			includeTestsMatching 'integration.com.*'
 		}
 	}
-}
-
-tasks.named('check') {
-	dependsOn integrationTest
 }

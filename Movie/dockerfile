@@ -1,0 +1,11 @@
+FROM openjdk:11
+
+ARG SPRING_APPLICATION_JSON
+
+ENV SPRING_APPLICATION_JSON $SPRING_APPLICATION_JSON
+
+WORKDIR /app
+COPY ./build/libs/*.jar movie.jar
+
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "movie.jar"]

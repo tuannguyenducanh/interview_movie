@@ -1,9 +1,15 @@
 FROM mysql:8.0
+
+ARG MYSQLDB_DATABASE
+ARG MYSQL_ROOT_PASSWORD
+
 LABEL description="Movie docker image"
 
-# Add a database
-ENV MYSQL_DATABASE interview
+ENV MYSQL_ROOT_PASSWORD $MYSQL_ROOT_PASSWORD
 
-#Check out docker entry point for further configuration :
-# https://github.com/docker-library/mysql
+# Add a database
+ENV MYSQL_DATABASE $MYSQLDB_DATABASE
+
+
+# Init script to create data
 COPY ./init-scripts/ /docker-entrypoint-initdb.d/
