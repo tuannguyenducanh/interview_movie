@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
+
 @Builder
 @Getter
 @Setter
@@ -16,5 +18,6 @@ public class ApiError {
 
     private String errorId;
     private String message;
-    private HttpStatus httpStatus;
+    private int httpStatus;
+    private List<ApiErrorDetail> details;
 }

@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -26,11 +27,12 @@ public class Movie {
     private Long id;
 
     @Column(name = "title", nullable = false)
+
     private String title;
 
     @Column(name = "category", nullable = false)
     private String category;
 
     @Column(name = "rating", nullable = false)
-    private Float rating;
+    private BigDecimal rating;
 }

@@ -27,8 +27,8 @@ public class MovieServiceImpl implements MovieService {
                 .category(movieRequestDto.getCategory())
                 .rating(movieRequestDto.getRating())
                 .build();
-        movieRepository.save(movie);
-        return mapResponse(movie);
+        Movie persistedMovie = movieRepository.save(movie);
+        return mapResponse(persistedMovie);
     }
 
     @Override
@@ -49,8 +49,8 @@ public class MovieServiceImpl implements MovieService {
                 .category(movieRequestDto.getCategory())
                 .rating(movieRequestDto.getRating())
                 .build();
-        movieRepository.save(updatedMovie);
-        return mapResponse(updatedMovie);
+        Movie persistedMovie = movieRepository.save(updatedMovie);
+        return mapResponse(persistedMovie);
     }
 
     @Override

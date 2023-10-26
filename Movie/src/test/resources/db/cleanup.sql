@@ -1,1 +1,1 @@
-TRUNCATE `Interview_movie`.`movie`;
+TRUNCATE `interview`.`movie`;
