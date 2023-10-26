@@ -1,6 +1,5 @@
 package com.bank.interview.movie.exception;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 

@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "0c835dbb-5627-4fe3-9d15-52853bbca473",
+		"name": "Movie interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"title\": \"Tom and Jerry\",\n  \"category\": \"Cartoon\",\n  \"rating\": 3.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/interview/v1/movie",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"interview",
+						"v1",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/interview/v1/movie/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"interview",
+						"v1",
+						"movie",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"title\": \"Tom and Jerry updated\",\n  \"category\": \"Cartoon updated\",\n  \"rating\": 4.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/interview/v1/movie/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"interview",
+						"v1",
+						"movie",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/interview/v1/movie/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"interview",
+						"v1",
+						"movie",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/interview/v1/movie?limit=7&sort=id&page=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"interview",
+						"v1",
+						"movie"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "7"
+						},
+						{
+							"key": "sort",
+							"value": "id"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

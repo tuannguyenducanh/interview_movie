@@ -1,7 +1,5 @@
 package com.bank.interview.movie.exception;
 
-import lombok.Getter;
-
 import java.math.BigDecimal;
 
 public class ConstraintValidationException extends BaseException {

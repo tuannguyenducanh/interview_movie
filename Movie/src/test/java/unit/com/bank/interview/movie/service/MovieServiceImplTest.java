@@ -1,6 +1,5 @@
 package unit.com.bank.interview.movie.service;
 
-import com.bank.interview.movie.api.MovieRequest;
 import com.bank.interview.movie.api.MovieResponse;
 import com.bank.interview.movie.repository.MovieRepository;
 import com.bank.interview.movie.repository.entity.Movie;
