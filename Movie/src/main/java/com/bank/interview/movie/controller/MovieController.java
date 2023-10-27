@@ -3,7 +3,6 @@ package com.bank.interview.movie.controller;
 import com.bank.interview.movie.api.MoviePage;
 import com.bank.interview.movie.api.MovieRequest;
 import com.bank.interview.movie.api.MovieResponse;
-import com.bank.interview.movie.constant.ErrorLocation;
 import com.bank.interview.movie.exception.DataNotFoundException;
 import com.bank.interview.movie.service.MovieService;
 import com.bank.interview.movie.service.ValidationService;
@@ -66,7 +65,7 @@ public class MovieController {
             MovieResponse movieResponse = movieService.getMovie(movieId);
             return new ResponseEntity<>(movieResponse, HttpStatus.OK);
         } catch (EntityNotFoundException ex) {
-            throw new DataNotFoundException(ex.getMessage(), ErrorLocation.PATH, MOVIE_ID);
+            throw new DataNotFoundException(ex.getMessage(), movieId, MOVIE_ID);
         }
     }
 
@@ -96,7 +95,7 @@ public class MovieController {
             MovieResponse movieResponse = movieService.update(movieId, movieRequestDto);
             return new ResponseEntity<>(movieResponse, HttpStatus.OK);
         } catch (EntityNotFoundException ex) {
-            throw new DataNotFoundException(ex.getMessage(), ErrorLocation.PATH, MOVIE_ID);
+            throw new DataNotFoundException(ex.getMessage(), movieId, MOVIE_ID);
         }
     }
 
@@ -112,7 +111,7 @@ public class MovieController {
             movieService.delete(movieId);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (EntityNotFoundException ex) {
-            throw new DataNotFoundException(ex.getMessage(), ErrorLocation.PATH, MOVIE_ID);
+            throw new DataNotFoundException(ex.getMessage(), movieId, MOVIE_ID);
         }
     }
 

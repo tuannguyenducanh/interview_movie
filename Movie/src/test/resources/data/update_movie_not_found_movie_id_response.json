@@ -4,8 +4,8 @@
   "httpStatus": 404,
   "details": [
     {
-      "field": null,
-      "value": null,
+      "field": "movie_id",
+      "value": 1,
       "issue": null
     }
   ]

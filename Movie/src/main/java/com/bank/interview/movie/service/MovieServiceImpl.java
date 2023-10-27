@@ -55,7 +55,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public void delete(Long movieId) {
-        Movie movie = movieRepository.findById(movieId)
+        movieRepository.findById(movieId)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find movie with id " + movieId));
         movieRepository.deleteById(movieId);
     }

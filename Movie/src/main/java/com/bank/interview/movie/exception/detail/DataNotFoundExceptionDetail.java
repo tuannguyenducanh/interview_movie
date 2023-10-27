@@ -17,6 +17,9 @@ public class DataNotFoundExceptionDetail implements ExceptionDetail<DataNotFound
 
     @Override
     public List<ApiErrorDetail> buiApiErrorDetails(DataNotFoundException dataNotFoundException) {
-        return Collections.singletonList(ApiErrorDetail.builder().build());
+        return Collections.singletonList(ApiErrorDetail.builder()
+                        .value(dataNotFoundException.getValue())
+                        .field(dataNotFoundException.getField())
+                .build());
     }
 }

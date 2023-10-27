@@ -7,12 +7,19 @@ import lombok.EqualsAndHashCode;
 public class DataNotFoundException extends BaseException {
 
     private final String field;
-    private final String location;
+    private final Object value;
 
-    public DataNotFoundException(String message, String location, String field) {
+    public DataNotFoundException(String message, Object value, String field) {
         super(message);
         this.field = field;
-        this.location = location;
+        this.value = value;
     }
 
+    public String getField() {
+        return field;
+    }
+
+    public Object getValue() {
+        return value;
+    }
 }
