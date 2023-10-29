@@ -34,4 +34,10 @@ Interview movie implements the following features:
 
 #### Run integration test
 
-    cd Movie && docker run -d -p 63306:3306 --name movie -e MYSQL_ROOT_PASSWORD=movie123 movie-image && sleep 4 && ./gradlew integrationTest && cd ..
+    docker build -t movie-image ./mysql_ds
+
+    cd Movie && docker run -d -p 63306:3306 --name movie -e MYSQL_ROOT_PASSWORD=movie123 -e MYSQL_DATABASE=interview movie-image && sleep 4 && ./gradlew integrationTest && cd ..
+
+#### Note
+
+    I have 1 commit after deadline in README.md to change commandline for "Run integration test"
